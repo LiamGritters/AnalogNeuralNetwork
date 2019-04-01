@@ -1,0 +1,9 @@
+package ANNLCM;
+
+struct keypadcontroller_t
+{
+    int64_t  timestamp;
+	int8_t direction;  
+    string   name;
+    boolean  enabled;
+}

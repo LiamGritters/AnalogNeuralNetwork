@@ -1,0 +1,14 @@
+package ANNLCM;
+
+struct neuralnetworkdata_t
+{
+    int64_t  timestamp;
+    string   name;
+    boolean  enabled;
+    
+	float left_sensor; 
+	float right_sensor; 
+	float center_sensor; 
+	float angle_to_goal; 
+	float radius_to_goal; 
+}
