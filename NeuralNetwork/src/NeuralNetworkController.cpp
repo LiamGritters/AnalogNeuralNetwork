@@ -91,6 +91,13 @@ int main()
     while(handler.RobotDataMsgEnabled)
     {
         lcm.handle();
+
+        for(int i = 0; i < 5; ++i)
+        {
+            std::cout<<handler.RobotData[i]<<",";
+        }
+        std::cout<<std::endl;
+
         network.SetData(handler.RobotData, blob);
 
         if(!network.Forward(net)) return -1;

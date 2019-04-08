@@ -9,7 +9,7 @@ layer {
   }
   data_param {
     source: "../utilities/DataGenerator/shape_lmdb_train"
-    batch_size: 25
+    batch_size: 80
     backend: LMDB
   }
 }
@@ -23,7 +23,7 @@ layer {
   }
   data_param {
     source: "../utilities/DataGenerator/shape_lmdb_test"
-    batch_size: 25
+    batch_size: 80
     backend: LMDB
   }
 }
@@ -33,7 +33,7 @@ layer {
   bottom: "data"
   top: "ip1"
   inner_product_param {
-    num_output: 20
+    num_output: 60
     weight_filler {
       type: "xavier"
     }

@@ -37,6 +37,7 @@ ClassifyANN::Initialize()
 void
 ClassifyANN::SetData(std::vector<float> inputData, caffe::Blob<float> &blob)
 {
+    _blobProto.clear_data();
     const int dataSize = inputData.size();
     for(int i = 0; i < dataSize; ++i)
     {

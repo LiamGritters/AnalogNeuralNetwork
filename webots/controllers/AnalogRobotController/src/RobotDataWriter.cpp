@@ -54,10 +54,11 @@ RobotDataWriter::WriteData(SensorManager &sensors, ControlsManager &controls, fl
         _fileWriter << 1.0 - (sensors.GetCenterDistanceSensor().distance / 100.0) <<",";
         _fileWriter << 1.0 - (sensors.GetRightDistanceSensor().distance / 100.0) <<",";
         _fileWriter << radiusToGoal <<",";
-        _fileWriter << 1 - (angleToGoal / M_PI) <<",";
+        _fileWriter << (angleToGoal / M_PI) <<",";
         _fileWriter << direction <<std::endl;
     }
 }
+
 
 
 

@@ -241,11 +241,17 @@ SystemInterface::publishData(lcm::LCM *lcm, SystemInterface *system, SensorManag
         std::chrono::milliseconds ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
         msg.timestamp = (int64_t)ms.count();
 
-        msg.left_sensor = sensors->GetLeftDistanceSensor().distance;
-        msg.center_sensor = sensors->GetCenterDistanceSensor().distance;
-        msg.right_sensor = sensors->GetRightDistanceSensor().distance;
-        msg.radius_to_goal = system->_radiusToGoal;
-        msg.angle_to_goal = system->_angleToGoal;
+        msg.left_sensor = 1.0 - (sensors->GetLeftDistanceSensor().distance / 100.0);
+        msg.center_sensor = 1.0 - (sensors->GetCenterDistanceSensor().distance / 100.0);
+        msg.right_sensor = 1.0 -  (sensors->GetRightDistanceSensor().distance / 100.0);
+        msg.radius_to_goal = (system->_radiusToGoal / system->_initialRadiusToGoal);
+        msg.angle_to_goal = (system->_angleToGoal / M_PI);
+
+        std::cout<<msg.left_sensor<<",";
+        std::cout<<msg.center_sensor<<",";
+        std::cout<<msg.right_sensor<<",";
+        std::cout<<msg.radius_to_goal<<",";
+        std::cout<<msg.angle_to_goal<<std::endl;
 
         lcm->publish(NeuralNetworkChannel, &msg);
 

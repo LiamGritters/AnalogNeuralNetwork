@@ -10,7 +10,7 @@ layer {
   bottom: "data"
   top: "ip1"
   inner_product_param {
-    num_output: 20
+    num_output: 60
     weight_filler {
       type: "xavier"
     }
